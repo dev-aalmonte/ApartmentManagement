@@ -10,13 +10,22 @@
     &__title {
         justify-self: start;
         width: 100%;
+        margin-top: 6.6rem;
     }
 
     &__email {
-
+        margin-top: 7.7rem;
     }
 
     &__password {
+        margin-top: 4.4rem;
+    }
+    
+    &__login {
+        margin-top: 8.8rem;
+    }
 
+    &__text-links {
+        margin-top: 5.2rem;
     }
 }
