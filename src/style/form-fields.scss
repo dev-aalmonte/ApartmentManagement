@@ -1,0 +1,38 @@
+.form-input {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 12.9rem 50rem;
+
+    align-items: center;
+    width: 62.9rem;
+    
+    
+    &__title {
+        grid-row: 1/-1;
+        grid-column: 1/2;
+    }
+    
+    &__input {
+        grid-row: 1/-1;
+        grid-column: 2/3;
+    }
+}
+
+.form-input {
+    &__title {
+        color: $color-red-BA;
+        font-size: 1.8rem;
+        font-weight: 500;
+        line-height: 2.3rem;
+    }
+
+    &__input {
+        width: 50rem;
+        height: 4rem;
+        border: 1px solid $color-gray-E6;
+        border-radius: .5rem;
+        padding-left: 2rem;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+}

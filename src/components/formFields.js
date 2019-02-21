@@ -5,8 +5,8 @@ export class FormInput extends Component{
         const {className, title} = this.props;
         return (
             <div className='form-input'>
-            <label>{title}</label>
-                <input className={`${className} form-imput`}/>
+                <label className='form-input__title'>{title}</label>
+                <input className={`${className} form-input__input`} placeholder='Email' component={FormInput} name='email' type='email'/>
             </div>
         )
     }
