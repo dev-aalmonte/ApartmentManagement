@@ -2,17 +2,29 @@ import React,  { Component } from 'react';
 
 class Tabnav extends Component {
     render(){
-
-        var JSX = [
-            <h1>tabs</h1>
-        ];
-
-        this.props.tabs.map((tab, index) => {
-            JSX.push(tab.component);
-            // console.log(tab);
-        })
-
-        return JSX;
+        return (
+            <div className='tab-nav'>
+                <div className='tab-nav__tabs'>
+                {
+                    this.props.tabs.map((tab, index) => {
+                        const className = `tab-nav__tab ${tab.active ? 'tab-nav__active' : ''}`;
+                        return <a onClick={() => this.props.handleTabChange(tab.title)} key={index} className={className}>{tab.title}</a>
+                    })
+                }
+                </div>
+                {
+                    this.props.tabs.map((tab, index) => {
+                        if(tab.active){
+                            return (
+                                <div key={index} className='tab-nav__component'>
+                                    { tab.component }
+                                </div>
+                            )
+                        }
+                    })
+                }
+            </div>
+        )
     }
 }
 
