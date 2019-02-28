@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
+import Button from '../button';
 
 class NewsletterLatest extends Component {
+
+    handleEdit = () => {
+        console.log('Handling edit');
+    }
+
     render() {
+        const {title, imageUrl, body } = this.props;
         return(
             <div className='newsletter-latest'>
-                <h1 className='newsletter-latest__title'>Title goes here</h1>
-                <img className='newsletter-latest__image' src='http://via.placeholder.com/960x258'/>
+                <h1 className='newsletter-latest__title'>{title}</h1>
+                <img className='newsletter-latest__image' src={imageUrl}/>
+                <Button className='newsletter-latest__button' callback={() => this.handleEdit()} icon='fas fa-pencil-alt'/>
                 <div className='newsletter-latest__body'>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus ex, finibus id vehicula eu, tempus non mauris. Sed nec purus vitae augue volutpat viverra non quis ligula. Ut eget mauris id tellus sollicitudin sagittis. Fusce euismod dui vel nulla aliquam, id luctus mauris sodales. Phasellus pharetra cursus lacus in pulvinar. Quisque posuere diam non massa sodales aliquam. Suspendisse pellentesque fermentum nibh ut euismod. Cras ac pellentesque turpis. Morbi at orci ultrices, congue lorem in, sodales eros.</p>
+                    <p>{body}</p>
                 </div>
             </div>
         )
