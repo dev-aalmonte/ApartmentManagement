@@ -72,6 +72,18 @@
     }
 }
 
+.form-button, .form-button-small {
+    &__button, .button {
+        transition: all .2s ease;
+        &:focus {
+            outline: none;
+        }
+        &:active {
+            transform: scale(.95) translateY(.205rem);
+        }
+    }
+}
+
 .form-textarea {
     &__title {
         align-self: start;
