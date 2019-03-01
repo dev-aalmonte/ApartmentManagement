@@ -9,7 +9,7 @@ class NewNewsletter extends Component {
     render() {
         return(
             <div className='new-newsletter'>
-                <NewNewsletter onSubmit={(e) => this.onSubmit(e)} />
+                <NewNewsletterForm onSubmit={(e) => this.onSubmit(e)} />
             </div>
         )
     }

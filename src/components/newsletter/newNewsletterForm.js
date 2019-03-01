@@ -14,12 +14,7 @@ class NewNewsletterForm extends Component {
             <form onSubmit={handleSubmit} className='new-newsletter-form'>
                 <FormTitle className='new-newsletter-form__title' text='Login'/>
                 <Field className='new-newsletter-form__email' component={FormInput} name='email' type='email' placeholder='Email' title='Email'/>
-                <Field className='new-newsletter-form__password' component={FormInput} name='password' type='password' placeholder='Password' title='Password'/>
-                <Field className='new-newsletter-form__login' component={FormButton} name='login' type='submit' title='Login'/>
-                <div className='new-newsletter-form__text-links'>
-                    <TextLink to='/forgot' text='Forgot Password'/>
-                    <TextLink to='/signup' text='Not a member? Register here'/>
-                </div>
+                
             </form>
         )
     }
