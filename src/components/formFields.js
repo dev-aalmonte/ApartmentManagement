@@ -46,14 +46,19 @@ export class FormImage extends Component{
             fileElement.click();
     }
 
+    handleSelectedImage = (e) => {
+        var image = document.getElementById('newsletter-new-image');
+        image.src = URL.createObjectURL(e.target.files[0]);
+    }
+
     render() {
         const {className, title, input, type, imageUrl} = this.props;
         return (
             <div className={`${className} form-image`}>
                 <label className='form-image__title'>{title}</label>
-                <img className='form-image__image' src={imageUrl}/>
+                <img id='newsletter-new-image' className='form-image__image' src={imageUrl}/>
                 <input className='form-image__replace' type='button' value='Replace' onClick={() => {this.openFile()}}/>
-                <input type={type} style={{display: 'none'}} {...input} id='file' name='file' accepts='iamge/w' value={undefined}/>
+                <input type={type} style={{display: 'none'}} {...input} id='file' name='file' accepts='iamge/w' value={undefined} onChange={(e) => {this.handleSelectedImage(e)}}/>
             </div>
         )
     }

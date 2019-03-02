@@ -116,6 +116,8 @@
         height: 13.7rem;
         background: gray;
         grid-row: image-s/image-e;
+
+        object-fit: cover;
     }
     
     &__replace {
