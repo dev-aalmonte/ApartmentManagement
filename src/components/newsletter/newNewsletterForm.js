@@ -3,16 +3,13 @@ import { reduxForm, Field } from 'redux-form';
 
 import FormTitle from '../formTitle';
 import { FormInput, FormButton, FormTextArea, FormImage } from '../formFields';
-import TextLink from '../textLink';
 
 class NewNewsletterForm extends Component {
     cancelForm = () => {
-        console.log("This")
         this.props.history.push('/dashboard');
     }
 
     render() {
-
         const { handleSubmit } = this.props;
 
         return(
