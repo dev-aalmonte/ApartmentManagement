@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 export class FormInput extends Component{
     render() {
-        const {className, title, input, type, placeholder} = this.props;
+        const {className, title, input, type, placeholder, formValue} = this.props;
         return (
             <div  className={`${className} form-input`}>
                 <label className='form-input__title'>{title}</label>
-                <input className='form-input__input' placeholder={placeholder} type={type} {...input}/>
+                <input className='form-input__input' placeholder={placeholder} type={type} {...input} value={formValue} />
             </div>
         )
     }
@@ -14,12 +14,12 @@ export class FormInput extends Component{
 
 export class FormTextArea extends Component{
     render() {
-        const {className, title, input, type, placeholder} = this.props;
+        const {className, title, input, type, placeholder, formValue} = this.props;
         return (
             <div  className={`${className} form-textarea`}>
                 <label className='form-textarea__title'>{title}</label>
-                <textarea className='form-textarea__input' placeholder={placeholder} type={type} {...input}>
-                
+                <textarea className='form-textarea__input' placeholder={placeholder} type={type} {...input} value={formValue ? formValue : ''}>
+
                 </textarea>
             </div>
         )
@@ -52,11 +52,11 @@ export class FormImage extends Component{
     }
 
     render() {
-        const {className, title, input, type, imageUrl} = this.props;
+        const {className, title, input, type, imageUrl, src} = this.props;
         return (
             <div className={`${className} form-image`}>
                 <label className='form-image__title'>{title}</label>
-                <img id='newsletter-new-image' className='form-image__image' src={imageUrl}/>
+                <img id='newsletter-new-image' className='form-image__image' src={imageUrl ? imageUrl : src}/>
                 <input className='form-image__replace' type='button' value='Replace' onClick={() => {this.openFile()}}/>
                 <input type={type} style={{display: 'none'}} {...input} id='file' name='file' accepts='iamge/w' value={undefined} onChange={(e) => {this.handleSelectedImage(e)}}/>
             </div>

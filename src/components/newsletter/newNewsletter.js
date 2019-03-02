@@ -9,7 +9,7 @@ class NewNewsletter extends Component {
     render() {
         return(
             <div className='new-newsletter'>
-                <NewNewsletterForm history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
+                <NewNewsletterForm formTitle="New Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
             </div>
         )
     }

@@ -19,6 +19,7 @@ import Signup from './components/auth/signup';
 import Signin from './components/auth/signin';
 import Dashboard from './components/dashboard';
 import NewNewsletter from './components/newsletter/newNewsletter';
+import EditNewsletter from './components/newsletter/editNewsletter';
 
 
 // Delete Later
@@ -36,6 +37,7 @@ function main() {
             <Route path="/signup" component={Signup} />
             <Route path="/dashboard" component={requireAuth(Dashboard)} />
             <Route path="/newsletter/new" component={requireAuth(NewNewsletter)} />
+            <Route path="/newsletter/edit/:id" component={requireAuth(EditNewsletter)} />
           </Layout>
         </Switch>
       </Router>
