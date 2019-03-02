@@ -17,6 +17,7 @@
 
     &__body {
         margin-top: 2rem;
+        grid-row: 3;
         grid-column: input-s/input-e;
     }
 
@@ -32,5 +33,11 @@
 
     &__cancel {
         transform: translateX(-15.5rem);
+    }
+
+    &__image {
+        grid-row: 3;
+        grid-column: s;
+        align-self: end;
     }
 }

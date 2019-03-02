@@ -1,3 +1,5 @@
+
+
 .form-input, .form-textarea {
     display: grid;
     grid-auto-rows: 1fr;
@@ -20,10 +22,7 @@
 
 .form-input, .form-textarea {
     &__title {
-        color: $color-red-BA;
-        font-size: 1.8rem;
-        font-weight: 500;
-        line-height: 2.3rem;
+        @include red-title;
     }
 
     &__input {
@@ -72,8 +71,8 @@
     }
 }
 
-.form-button, .form-button-small {
-    &__button, .button {
+.form-button, .form-button-small, .form-image {
+    &__button, .button, &__replace {
         transition: all .2s ease;
         &:focus {
             outline: none;
@@ -94,5 +93,47 @@
         resize: none;
         padding-top: 1rem;
         height: 35.5rem;
+    }
+}
+
+.form-image {
+    display: grid;
+    grid-template-rows: [title-s] 1fr [title-e image-s] 13.7rem [image-e];
+    grid-template-columns: [s] 16rem [e];
+
+    & > * {
+        grid-column: s/e;
+    }
+
+    &__title {
+        @include red-title;
+        margin-bottom: 2rem;
+        grid-row: title-s/title-e;
+    }
+    
+    &__image {
+        width: 16rem;
+        height: 13.7rem;
+        background: gray;
+        grid-row: image-s/image-e;
+    }
+    
+    &__replace {
+        border-radius: 1.6rem;
+        border: 1px solid white;
+        background: white;
+        
+        width: 13rem;
+        height: 2.4rem;
+        
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+        text-align: center;
+        
+        color: $color-red-BA;
+        grid-row: image-s/image-e;
+
+        align-self: center;
+        justify-self: center;
     }
 }

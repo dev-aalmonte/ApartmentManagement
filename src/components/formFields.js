@@ -31,9 +31,29 @@ export class FormButton extends Component{
         const {className, title, input, type, small, danger} = this.props;
         return (
             <div className={`${className} ${small ? 'form-button-small': 'form-button'}`}>
-                <button onClick={() => {this.props.onClick()}} className={`${small ? 'form-button-small': 'form-button'}__button ${danger ? 'form-button-small__danger': ''}`} type={type} {...input}>
+                <button onClick={() => {this.props.onClick ? this.props.onClick() : undefined}} className={`${small ? 'form-button-small': 'form-button'}__button ${danger ? 'form-button-small__danger': ''}`} type={type} {...input}>
                     {title}
                 </button>
+            </div>
+        )
+    }
+}
+
+export class FormImage extends Component{
+    openFile = () => {
+        const fileElement = document.getElementById('file');
+        if(fileElement)
+            fileElement.click();
+    }
+
+    render() {
+        const {className, title, input, type, imageUrl} = this.props;
+        return (
+            <div className={`${className} form-image`}>
+                <label className='form-image__title'>{title}</label>
+                <img className='form-image__image' src={imageUrl}/>
+                <input className='form-image__replace' type='button' value='Replace' onClick={() => {this.openFile()}}/>
+                <input type={type} style={{display: 'none'}} {...input} id='file' name='file' accepts='iamge/w' value={undefined}/>
             </div>
         )
     }
