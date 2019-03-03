@@ -14,6 +14,7 @@ export function fetchNewsletters() {
                 imageUrl: 'http://via.placeholder.com/960x258'
             },
             {
+                _id: '395',
                 title: 'Second Newsletter',
                 body: 'Ut eget mauris id tellus sollicitudin sagittis. Fusce euismod dui vel nulla aliquam, id luctus mauris sodales. Phasellus pharetra cursus lacus in pulvinar. Quisque posuere diam non massa sodales aliquam. Suspendisse pellentesque fermentum nibh ut euismod. Cras ac pellentesque turpis. Morbi at orci ultrices, congue lorem in, sodales eros.',
                 date: new Date(),
