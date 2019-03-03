@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-export function ArchiveItem({title, date}){
+export function ArchiveItem({title, date, _id, callback}){
     return (
-        <div className='archive-item'>
-            <div className='archive-item__title'>{ title }</div>
+        <div className='archive-item' onClick={() => callback(_id)}>
+            <a className='archive-item__title'>{ title }</a>
             <div className='archive-item__date'>
                 {date.getMonth() + 1}/{date.getDate()}/{date.getFullYear() - 2000}
             </div>
@@ -13,6 +13,10 @@ export function ArchiveItem({title, date}){
 }
 
 class NewsletterArchive extends Component {
+    openDetails = (id) => {
+        this.props.history.push(`newsletter/detail/${id}`);
+    }
+
     render() {
         return (
             <div className='newsletter-archive'>
@@ -20,7 +24,7 @@ class NewsletterArchive extends Component {
                 <div className='newsletter-archive__items archive-items'>
                     {
                         this.props.newsletters.map((newsletter, index) => {
-                            return <ArchiveItem key={index} {...newsletter}/>
+                            return <ArchiveItem callback={this.openDetails} key={index} {...newsletter}/>
                         })
                     }
                 </div>
