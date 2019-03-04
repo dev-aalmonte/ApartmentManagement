@@ -1,0 +1,19 @@
+.request-grid {
+    grid-row: content-s/content-e;
+
+    display: grid;
+    grid-template-rows: [add-s] 4.7rem [add-e s boxes-s] 1fr [boxes-e e];
+    grid-template-columns: [boxes-s] 16rem [boxes-e requests-s] 96rem [requests-e];
+
+    justify-content: center;
+    
+    grid-column-gap: 6.1rem;
+
+    &__button {
+        grid-row: add-s/add-e;
+        grid-column: requests-s/requests-e;
+        justify-self: end;
+        align-self: center;
+        margin-right: 1rem;
+    }
+}
