@@ -1,0 +1,29 @@
+.newsletter-detail {
+    grid-row: content-s/content-e;
+    grid-column: content-s/content-e;
+
+    display: grid;
+    grid-template-rows: 5rem [add-s] 4.7rem [add-e s box-s] 16rem [box-e] 1fr [e];
+    grid-template-columns: [box-s] 16rem [box-e latest-s] 96rem [latest-e];
+
+    justify-content: center;
+
+    grid-column-gap: 6.1rem;
+
+    &__title {
+        width: 100%;
+        margin-top: 1.4rem;
+        grid-column: 1/-1;
+        grid-row: 1;
+    }
+
+    &__cancel {
+        grid-row: 1;
+        grid-column: latest-s/latest-e;
+        justify-self: end;
+        align-self: end;
+        
+        margin-right: 1rem;
+        margin-bottom: 1.2rem;
+    }
+}

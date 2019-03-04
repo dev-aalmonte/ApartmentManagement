@@ -2,16 +2,27 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
+import NewsletterBox from './newsletterBox';
+import NewsletterLatest from './newsletterLatest';
+import FormTitle  from '../formTitle';
+import { FormButton } from '../formFields';
+
 class NewsletterDetails extends Component {
     componentDidMount() {
         this.props.fetchNewsletterById(this.props.match.params.id)
     }
 
+    openDashboard = () => {
+        this.props.history.push('/dashboard');
+    }
+
     render() {
-        console.log("Newsletter Details: ", this.props.newsletterToEdit);
         return(
             <div className='newsletter-detail'>
-                Newsletter Details
+                <FormTitle className='newsletter-detail__title' text='Newsletter Detail'/>
+                <NewsletterBox {...this.props.newsletterToEdit}/>
+                <NewsletterLatest {...this.props.newsletterToEdit} history={this.props.history}/>
+                <FormButton className='newsletter-detail__cancel' small={true} onClick={() => this.openDashboard()} title='Cancel' />
             </div>
         )
     }
