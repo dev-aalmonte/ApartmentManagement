@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import Icon from '../icon';
+
 class RequestItem extends Component {
     render() {
-        return(
+        return (
             <div className='request-item'>
-                Hello there
+                <Icon icon='fas fa-exclamation-triangle'/>
             </div>
         )
     }
