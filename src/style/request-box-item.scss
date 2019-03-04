@@ -3,22 +3,22 @@
     width: 16rem;
     border: .1rem solid $color-red-BA;
     border-radius: .5rem;
-
+    
     color: $color-red-BA;
-
+    
     display: grid;
     justify-items: center;
     align-content: center;
-
+    
     grid-template-rows: [s] 8.1rem [m] 2.3rem [e];
     grid-template-columns: [s] 1fr [e];
-
+    
     &__count {
         align-self: end;
         font-size: 6.7rem;
         line-height: 8.1rem;
         margin-bottom: .7rem;
-
+        
         grid-row: s/m;
         grid-column: s/e;
     }
@@ -27,7 +27,7 @@
         align-self: start;
         font-size: 2rem;
         line-height: 2.3rem;
-
+        
         grid-row: m/e;
         grid-column: s/e;
     }
@@ -36,17 +36,46 @@
         height: 4rem;
         width: 4rem;
         background-color: white;
-
+        
         grid-row: s/e;
         grid-column: s/e;
 
         justify-self: end;
         align-self: center;
-
+        
         transform: translateX(51%) rotate(45deg);
-
+        
         border: .1rem solid $color-red-BA;
         border-bottom: none;
         border-left: none;
+    }
+}
+
+.request-box-item-active {
+    background-color: $color-red-BA;
+    border-color: $color-red-BA;
+    
+    .request-box-item {
+        &__title, &__count {
+            color: white;
+            
+        }
+        &__point {
+            background-color: $color-red-BA;
+            border-color: $color-red-BA;
+        }   
+    }
+}
+
+.request-box-item-inactive {
+    border-color: $color-gray-4D;
+
+    .request-box-item{
+        &__title, &__count {
+            color: $color-gray-4D;
+        }
+        &__point {
+            display: none;
+        }   
     }
 }
