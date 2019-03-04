@@ -12,6 +12,8 @@
     
     grid-template-rows: [s] 8.1rem [m] 2.3rem [e];
     grid-template-columns: [s] 1fr [e];
+
+    cursor: pointer;
     
     &__count {
         align-self: end;
