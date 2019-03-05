@@ -1,3 +1,57 @@
 .request-item {
+    display: grid;
+    grid-template-rows: [s title-s] 3.4rem [title-e tenant-s] 3.4rem [tenant-e e description-s] 14.7rem [description-e];
+    grid-template-columns: [icon-s] 6.8rem [icon-e s title-s] 1fr [title-e arrow-s] 6.8rem [arrow-e date-s] 10rem [date-e e] 6rem;
+
+    align-items: center;
+
+    &__icon {
+        grid-column: icon-s/icon-e;
+        grid-row: s/e;
+        justify-self: center;
+    }
+
+    &__title {
+        grid-column: title-s/title-e;
+        grid-row: title-s/title-e;
+    }
+
+    &__tenant-unit {
+        grid-column: title-s/title-e;
+        grid-row: tenant-s/tenant-e;
+    }
+
+    &__arrow {
+        grid-column: arrow-s/arrow-e;
+        grid-row: title-s/title-e;
+    }
+
+    &__date {
+        grid-column: date-s/date-e;
+        grid-row: s/e;
+    }
+
+    &__move {
+        grid-column: date-s/date-e;
+        grid-row: s/e;
+
+        display: none;
+    }
     
+    &__description {
+        grid-column: s/e;
+        grid-row: description-s/description-e;
+
+        display: grid;
+        grid-column-gap: 4rem;
+        grid-auto-flow: column;
+    }
+
+    &__description-img{
+
+    }
+
+    &__description-text{
+        
+    }
 }
