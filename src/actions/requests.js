@@ -14,9 +14,10 @@ export function changeSelectedRequestType(boxType) {
     )
 }
 
-export function createNewRequest(userId, newRequest, success) {
+export function createNewRequest(userId, fields, success) {
     console.log("Token: ", localStorage.getItem('token'));
     console.log("User ID: ", userId);
+    console.log("User Fields: ", fields);
     // return function() {
     //     axios.post(`${ROOT_URL}/requests/new`, newRequest)
     //         .then(response => {

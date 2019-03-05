@@ -18,7 +18,7 @@ export class FormTextArea extends Component{
         return (
             <div  className={`${className} form-textarea`}>
                 <label className='form-textarea__title'>{title}</label>
-                <textarea className='form-textarea__input' placeholder={placeholder} type={type} {...input} value={formValue ? formValue : ''}>
+                <textarea className='form-textarea__input' placeholder={placeholder} type={type} {...input} value={formValue}>
 
                 </textarea>
             </div>

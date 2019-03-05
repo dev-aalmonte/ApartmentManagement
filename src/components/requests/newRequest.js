@@ -8,7 +8,7 @@ class NewRequest extends Component {
     
     onSubmit = (fields) => {
         const userId = this.props._id;
-        this.props.createNewRequest(userId, {}, () => {
+        this.props.createNewRequest(userId, fields, () => {
             this.props.history.push('/dashboard');
         });
     }
