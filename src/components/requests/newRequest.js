@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 import NewNewsletterForm from '../newsletter/newNewsletterForm';
 
 class NewRequest extends Component {
     
-    onSubmit = fields => {
-        this.props.history.push('dashboard');
+    onSubmit = (fields) => {
+        const userId = this.props._id;
+        this.props.createNewRequest(userId, {}, () => {
+            this.props.history.push('/dashboard');
+        });
     }
     
     render() {
@@ -30,5 +35,12 @@ class NewRequest extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    const { _id } = state.auth.user;
+    return { _id };
+}
+
+NewRequest = connect(mapStateToProps, actions)(NewRequest);
 
 export default NewRequest;
