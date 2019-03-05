@@ -35,8 +35,7 @@
     &__move {
         grid-column: date-s/date-e;
         grid-row: s/e;
-        
-        display: none;
+        justify-self: end;
     }
     
     &__description {
@@ -57,8 +56,18 @@
 
 .request-item {
     padding: .6rem 0rem;
+    transition: all .3s ease;
     &:hover {
         background-color: $color-gray-F8;
+
+        .request-item__move {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .request-item__date {
+            transform: translateX(-5rem);
+        }
     }
 
     &__icon {
@@ -86,11 +95,19 @@
     }
 
     &__date {
+        transition: all .3s ease;
         font-size: 1.4rem;
         line-height: 1.7rem;
     }
 
     &__move {
+        transition: all .3s ease;
+        transform: translateX(10rem);
+        opacity: 0;
+
+        &:hover {
+            
+        }
     }
 
     .item-description {
@@ -106,4 +123,8 @@
             line-height: 1.7rem;
         }
     }
+}
+
+.bg-F8 {
+    background-color: $color-gray-F8;
 }

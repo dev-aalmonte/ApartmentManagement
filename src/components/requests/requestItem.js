@@ -14,9 +14,18 @@ class RequestItem extends Component {
         }
     }
 
-    toggleDropdown = () => {
+    toggleDropdown = (e) => {
+        console.log("Event: ", e.target.nodeName);
+        var element = e.target.nodeName == 'I' ? e.target.parentNode.parentNode.parentNode : e.target.parentNode.parentNode;
         var height = this.state.height == 0 ? 'auto' : 0;
-        console.log("Height:",height);
+        
+        if(height) {
+            element.classList.add('bg-F8');
+        }
+        else {
+            element.classList.remove('bg-F8');
+        }
+
         this.setState({height});
     }
 
@@ -26,9 +35,9 @@ class RequestItem extends Component {
 
     render() {
         return (
-            <div className='request-item'>
+            <div className='request-item' id='request-item'>
                 <Icon className='request-item__icon' icon='fas fa-exclamation-triangle'/>
-                <div className='request-item__title' onClick={() => this.toggleDropdown()}>
+                <div className='request-item__title' onClick={(e) => this.toggleDropdown(e)}>
                     <div className='request-item__title__text'>
                         Yo my door fell out
                     </div>
