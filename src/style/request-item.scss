@@ -1,7 +1,7 @@
 .request-item {
     display: grid;
     grid-template-rows: [s title-s] 3.4rem [title-e tenant-s] 3.4rem [tenant-e e description-s] 14.7rem [description-e];
-    grid-template-columns: [icon-s] 6.8rem [icon-e s title-s] 1fr [title-e arrow-s] 6.8rem [arrow-e date-s] 10rem [date-e e] 6rem;
+    grid-template-columns: [icon-s] 10rem [icon-e s title-s] 1fr [title-e arrow-s] 6.8rem [arrow-e date-s] 10rem [date-e e] 6rem;
 
     align-items: center;
 
@@ -12,18 +12,19 @@
     }
 
     &__title {
+        align-self: end;
         grid-column: title-s/title-e;
         grid-row: title-s/title-e;
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
     }
 
     &__tenant-unit {
+        align-self: start;
         grid-column: title-s/title-e;
         grid-row: tenant-s/tenant-e;
-    }
-
-    &__arrow {
-        grid-column: arrow-s/arrow-e;
-        grid-row: title-s/title-e;
     }
 
     &__date {
@@ -46,12 +47,52 @@
         grid-column-gap: 4rem;
         grid-auto-flow: column;
     }
+}
+
+.request-item {
+
+    &__icon {
+        font-size: 2.5rem;
+    }
+
+    &__title {
+        &__text {
+            font-size: 1.8rem;
+            font-weight: 500;
+            line-height: 2.3rem;
+            margin-right: 2.5rem;
+        }
+
+        &__arrow {
+            font-size: 2.3rem;
+        }
+    }
+
+    &__tenant-unit {
+        font-family: $font-encode-cond;
+        color: $color-red-BA;
+        font-size: 1.3rem;
+        line-height: 1.6rem;
+    }
+
+    &__date {
+        font-size: 1.4rem;
+        line-height: 1.7rem;
+    }
+
+    &__move {
+    }
+    
+    &__description {
+        // display: none;
+    }
 
     &__description-img{
 
     }
 
     &__description-text{
-        
+        font-size: 1.4rem;
+        line-height: 1.7rem;
     }
 }
