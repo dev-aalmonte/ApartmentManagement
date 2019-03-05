@@ -22,10 +22,7 @@ import NewNewsletter from './components/newsletter/newNewsletter';
 import EditNewsletter from './components/newsletter/editNewsletter';
 import NewsletterDetails from './components/newsletter/newsletterDetail';
 
-
-// Delete Later
-
-// End Delete Later
+import NewRequest from './components/requests/NewRequest';
 
 function main() {
   ReactDOM.render(
@@ -43,7 +40,7 @@ function main() {
             <Route path="/newsletter/edit/:id" component={requireAuth(EditNewsletter)} />
             <Route path="/newsletter/detail/:id" component={requireAuth(NewsletterDetails)} />
 
-            <Route path="/request/new/" component={requireAuth(NewNewsletter)} />
+            <Route path="/request/new/" component={requireAuth(NewRequest)} />
           </Layout>
         </Switch>
       </Router>

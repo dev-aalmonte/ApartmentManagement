@@ -7,9 +7,23 @@ class NewNewsletter extends Component {
     }
 
     render() {
+        const placeholders = [
+            {
+                title: 'Newsletter Title',
+                placeholder: 'Newsletter Title'
+            },
+            {
+                title: 'Body',
+                placeholder: 'Newsletter Body'
+            },
+            {
+                title: 'Image',
+                placeholder: 'Image'
+            }
+        ];
         return(
             <div className='new-newsletter'>
-                <NewNewsletterForm formTitle="New Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
+                <NewNewsletterForm formTitle="New Newsletter" placeholders={placeholders} history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
             </div>
         )
     }

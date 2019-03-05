@@ -14,9 +14,23 @@ class EditNewsletter extends Component {
     }
 
     render() {
+        const placeholders = [
+            {
+                title: 'Newsletter Title',
+                placeholder: 'Newsletter Title'
+            },
+            {
+                title: 'Body',
+                placeholder: 'Newsletter Body'
+            },
+            {
+                title: 'Image',
+                placeholder: 'Image'
+            }
+        ];
         return(
             <div className='new-newsletter'>
-                <NewNewsletterForm newsletterToEdit={this.props.newsletterToEdit} formTitle="Edit Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
+                <NewNewsletterForm newsletterToEdit={this.props.newsletterToEdit} placeholders={placeholders} formTitle="Edit Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
             </div>
         )
     }
