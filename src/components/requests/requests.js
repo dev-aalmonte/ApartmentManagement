@@ -9,7 +9,9 @@ class Requests extends Component {
             <div className='requests'>
                 {
                     this.props.requests.map(item => {
-                        return <RequestItem {...item} key={item._id}/>
+                        const {selectedRequestType} = this.props;
+                        if (item.status == selectedRequestType.toLowerCase())
+                            return <RequestItem {...item} key={item._id}/>
                     })
                 }
             </div>
@@ -18,9 +20,10 @@ class Requests extends Component {
 }
 
 function mapStateToProps(state){
-    const { requests } = state.request;
+    const { requests, selectedRequestType } = state.request;
     return {
-        requests
+        requests,
+        selectedRequestType
     }
 
 }
