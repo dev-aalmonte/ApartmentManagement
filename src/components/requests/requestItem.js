@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
 import Icon from '../icon';
 import Button from '../button';
@@ -30,12 +32,16 @@ class RequestItem extends Component {
         this.setState({height});
     }
 
-    handleMoveRequest = (id) => {
-        console.log("Trying to move a request: ", id);
+    handleMoveRequest = (_id, status) => {
+        status = status.toLowerCase();
+        this.props.changeStatus({_id, status}, () => {
+            this.props.fetchRequests();
+        });
+
     }
 
     render() {
-        const {title, body, date, imageUrl, _id} = this.props;
+        const {title, body, date, imageUrl, _id, status} = this.props;
         const modifiedDate = new Date(date);
         return (
             <div className='request-item' id='request-item'>
@@ -52,7 +58,7 @@ class RequestItem extends Component {
                 <div className='request-item__date'>
                     {modifiedDate.getMonth() + 1}/{modifiedDate.getDate()}/{modifiedDate.getFullYear() - 2000}
                 </div>
-                <Button className='request-item__move' icon='fas fa-wrench' callback={() => this.handleMoveRequest(_id)}/>
+                <Button className='request-item__move' icon='fas fa-wrench' callback={() => this.handleMoveRequest(_id, status)}/>
 
                 <div className='request-item__description'>
                     <AnimateHeight duration={300} height={this.state.height}>
@@ -68,5 +74,7 @@ class RequestItem extends Component {
         )
     }
 }
+
+RequestItem = connect(null, actions)(RequestItem);
 
 export default RequestItem;
