@@ -48,8 +48,14 @@
         grid-column-gap: 4rem;
         grid-auto-flow: column;
 
+        grid-template-columns: 16rem 1fr;
+
         &__img {
             align-self: center;
+        }
+
+        &__text {
+            align-self: start;
         }
     }
 }
@@ -112,11 +118,14 @@
         
         &__img {
             object-fit: cover;
+            width: 16rem;
+            height: 9.4rem;
         }
         
         &__text {
             font-size: 1.4rem;
             line-height: 1.7rem;
+            text-align: justify;
         }
     }
 }
