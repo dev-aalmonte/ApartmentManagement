@@ -9,13 +9,14 @@ import * as actions from '../../actions';
     }
 
     render(){
-        const { count, title } = this.props;
+        const { count, title, icon } = this.props;
         const className = `request-box-item ${this.props.selectedRequestType == title ? 'request-box-item-active' : 'request-box-item-inactive'}`;
         return (
             <div onClick={() => this.handleClick(title)} className={className}>
                 <div className='request-box-item__count'>{count}</div>
                 <div className='request-box-item__title'>{title}</div>
                 <div className='request-box-item__point'></div>
+                <i className={`${icon} request-box-item__icon`}></i>
             </div>
         )
     }

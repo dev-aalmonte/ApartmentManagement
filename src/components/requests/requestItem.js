@@ -43,9 +43,27 @@ class RequestItem extends Component {
     render() {
         const {title, body, date, imageUrl, _id, status} = this.props;
         const modifiedDate = new Date(date);
+
+        var moveButtonIcon = 'fas fa-wrench';
+        var mainIcon = 'fas fa-exclamation-triangle';
+
+        switch (status) {
+            case 'In-Progress':
+            case 'in-progress':
+                mainIcon = 'fas fa-wrench';
+                moveButtonIcon = 'fas fa-check-square';
+                break;
+                
+            case 'Complete':
+            case 'complete':
+                mainIcon = 'fas fa-check-square';
+                moveButtonIcon = 'fas fa-exclamation-triangle';
+                break;
+        }
+
         return (
             <div className='request-item' id='request-item'>
-                <Icon className='request-item__icon' icon='fas fa-exclamation-triangle'/>
+                <Icon className='request-item__icon' icon={mainIcon}/>
                 <div className='request-item__title' onClick={(e) => this.toggleDropdown(e)}>
                     <div className='request-item__title__text'>
                         {title}
@@ -58,7 +76,7 @@ class RequestItem extends Component {
                 <div className='request-item__date'>
                     {modifiedDate.getMonth() + 1}/{modifiedDate.getDate()}/{modifiedDate.getFullYear() - 2000}
                 </div>
-                <Button className='request-item__move' icon='fas fa-wrench' callback={() => this.handleMoveRequest(_id, status)}/>
+                <Button className='request-item__move' icon={moveButtonIcon} callback={() => this.handleMoveRequest(_id, status)}/>
 
                 <div className='request-item__description'>
                     <AnimateHeight duration={300} height={this.state.height}>

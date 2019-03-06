@@ -15,7 +15,30 @@
 
     cursor: pointer;
     
-    &__count {
+    &:hover {
+        border-color: $color-red-BA;
+        background-color: white;
+
+        .request-box-item__point {
+            background-color: white;
+        }
+
+        .request-box-item__count {
+            opacity: 0;
+        }
+        
+        .request-box-item__icon {
+            opacity: 1;
+        }
+
+        .request-box-item__title {
+            color: $color-red-BA;
+        }
+    }
+    
+    &__count, &__icon {
+        transition: all .3s ease;
+
         align-self: end;
         font-size: 6.7rem;
         line-height: 8.1rem;
@@ -25,6 +48,11 @@
         grid-column: s/e;
     }
     
+    &__icon {
+        opacity: 0;
+        font-size: 5rem;
+    }
+
     &__title {
         align-self: start;
         font-size: 2rem;
@@ -71,6 +99,12 @@
 
 .request-box-item-inactive {
     border-color: $color-gray-4D;
+
+    &:hover {
+        .request-box-item__point {
+            display: block;
+        }
+    }
 
     .request-box-item{
         &__title, &__count {
