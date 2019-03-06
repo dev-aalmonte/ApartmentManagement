@@ -3,29 +3,28 @@ import {
     FETCH_NEWSLETTER_ID
 } from './types';
 
+import axios from 'axios';
+import { ROOT_URL } from '../config';
+
+
 export function fetchNewsletters() {
-    const response = {
-        data: [
-            {
-                _id: '115',
-                title: 'Happy Holiday',
-                body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus ex, finibus id vehicula eu, tempus non mauris. Sed nec purus vitae augue volutpat viverra non quis ligula. Ut eget mauris id tellus sollicitudin sagittis. Fusce euismod dui vel nulla aliquam, id luctus mauris sodales. Phasellus pharetra cursus lacus in pulvinar. Quisque posuere diam non massa sodales aliquam. Suspendisse pellentesque fermentum nibh ut euismod. Cras ac pellentesque turpis. Morbi at orci ultrices, congue lorem in, sodales eros.',
-                date: new Date(),
-                imageUrl: 'http://via.placeholder.com/960x258'
-            },
-            {
-                _id: '395',
-                title: 'Second Newsletter',
-                body: 'Ut eget mauris id tellus sollicitudin sagittis. Fusce euismod dui vel nulla aliquam, id luctus mauris sodales. Phasellus pharetra cursus lacus in pulvinar. Quisque posuere diam non massa sodales aliquam. Suspendisse pellentesque fermentum nibh ut euismod. Cras ac pellentesque turpis. Morbi at orci ultrices, congue lorem in, sodales eros.',
-                date: new Date(),
-                imageUrl: 'http://via.placeholder.com/960x258'
+    return function(dispatch) {
+        const token = localStorage.getItem('token');
+        const headers = {
+            headers: {
+                authorization: token
             }
-        ]
-    }
-    
-    return {
-        type: SET_NEWSLETTERS,
-        payload: response.data
+        }
+        axios.get(`${ROOT_URL}/newsletters`, headers)
+            .then(response => {
+                dispatch({
+                    type: SET_NEWSLETTERS,
+                    payload: response.data
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 }
 
