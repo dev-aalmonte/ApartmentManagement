@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
-import NewNewsletterForm from './newNewsletterForm';
+import EditNewsletterForm from './editNewsletterForm';
 
 class EditNewsletter extends Component {
     onSubmit = (fields) => {
@@ -30,7 +30,7 @@ class EditNewsletter extends Component {
         ];
         return(
             <div className='new-newsletter'>
-                <NewNewsletterForm placeholders={placeholders} formTitle="Edit Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
+                <EditNewsletterForm placeholders={placeholders} formTitle="Edit Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
             </div>
         )
     }

@@ -5,7 +5,7 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
  class NewsletterBox extends Component {
     render(){
         const { date } = this.props;
-        const parsedDate = new Date(date);
+        const parsedDate = date ? new Date(date) : new Date();
         if(!parsedDate) {
             return <div>...Loading</div>
         }
