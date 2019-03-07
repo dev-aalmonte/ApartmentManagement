@@ -6,7 +6,17 @@ import EditNewsletterForm from './editNewsletterForm';
 
 class EditNewsletter extends Component {
     onSubmit = (fields) => {
-        console.log("submiting newsletter");
+        const { title, body, image } = fields;
+        const itemId = this.props.match.params.id;
+
+        var formData = new FormData();
+        formData.append('title', title);
+        formData.append('body', body);
+        formData.append('image', image);
+
+        this.props.editNewsletter(itemId, formData, () => {
+            this.props.history.push('/dashboard');
+        });
     }
 
     componentDidMount(){

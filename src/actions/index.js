@@ -6,7 +6,8 @@ import {
 import {
     fetchNewsletters,
     fetchNewsletterById,
-    createNewNewsletter
+    createNewNewsletter,
+    editNewsletter
 } from './newsletter';
 
 import {
@@ -25,5 +26,6 @@ export {
     createNewRequest,
     fetchRequests,
     changeStatus,
-    createNewNewsletter
+    createNewNewsletter,
+    editNewsletter
 }
