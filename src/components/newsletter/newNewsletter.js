@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
+
 import NewNewsletterForm from './newNewsletterForm';
 
 class NewNewsletter extends Component {
     onSubmit = (fields) => {
-        console.log("submiting newsletter");
+        const { title, body, image } = fields;
+
+        var formData = new FormData();
+        formData.append('title', title);
+        formData.append('body', body);
+        formData.append('image', image);
+
+        this.props.createNewNewsletter(formData, () => {
+            this.props.history.push('/dashboard');
+        });
     }
 
     render() {
@@ -28,5 +40,7 @@ class NewNewsletter extends Component {
         )
     }
 }
+
+NewNewsletter = connect(null, actions)(NewNewsletter);
 
 export default NewNewsletter;

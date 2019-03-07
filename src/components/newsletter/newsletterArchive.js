@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export function ArchiveItem({title, date, _id, callback}){
+    const parsedDate = new Date(date);
     return (
         <div className='archive-item' onClick={() => callback(_id)}>
             <a className='archive-item__title'>{ title }</a>
             <div className='archive-item__date'>
-                {date.getMonth() + 1}/{date.getDate()}/{date.getFullYear() - 2000}
+                {parsedDate.getMonth() + 1}/{parsedDate.getDate()}/{parsedDate.getFullYear() - 2000}
             </div>
         </div>
     )

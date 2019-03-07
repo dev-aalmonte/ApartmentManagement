@@ -30,6 +30,10 @@
     &__image {
         grid-row: s/m;
         z-index: -10;
+
+        width: 96rem;
+        height: 25.8rem;
+        object-fit: cover;
     }
     &__body {
         grid-row: m/e;
