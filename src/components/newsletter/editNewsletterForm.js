@@ -5,6 +5,8 @@ import { reduxForm, Field } from 'redux-form';
 import FormTitle from '../formTitle';
 import { FormInput, FormButton, FormTextArea, FormImage } from '../formFields';
 
+import { ROOT_URL } from '../../config';
+
 class EditNewsletterForm extends Component {
     cancelForm = () => {
         this.props.history.push('/dashboard');
@@ -18,7 +20,7 @@ class EditNewsletterForm extends Component {
                 <FormTitle className='new-newsletter-form__title' text={formTitle}/>
                 <Field className='new-newsletter-form__newsletter-title' component={FormInput} name='title' type='text' placeholder={placeholders[0].placeholder} title={placeholders[0].title}/>
                 <Field className='new-newsletter-form__body' component={FormTextArea} name='body' type='text' placeholder={placeholders[1].placeholder} title={placeholders[1].title}/>
-                <Field className='new-newsletter-form__image' component={FormImage} name='image' type='file' title={placeholders[2].title}/>
+                <Field className='new-newsletter-form__image' component={FormImage} name='image' type='file' title={placeholders[2].title} imageUrl={`${ROOT_URL}/${this.props.initialValues.imageUrl}`}/>
                 <Field className='new-newsletter-form__submit' small={true} danger={true} component={FormButton} name='submit' type='submit' title='Submit'/>                
                 <Field className='new-newsletter-form__cancel' onClick={() => { this.cancelForm()}} small={true} component={FormButton} name='cancel' type='button' title='Cancel'/>                
             </form>
@@ -27,7 +29,8 @@ class EditNewsletterForm extends Component {
 }
 
 EditNewsletterForm = reduxForm({
-    form: 'editnewsletter'
+    form: 'editnewsletter',
+    enableReinitialize: true
 })(EditNewsletterForm);
 
 function mapStateToProps(state) {
