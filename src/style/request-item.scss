@@ -117,9 +117,12 @@
         margin-bottom: 1rem;
         
         &__img {
+            width: 100%;
+            min-height: 9.4rem;
+            height: 100%;
             object-fit: cover;
-            width: 16rem;
-            height: 9.4rem;
+
+            
         }
         
         &__text {
