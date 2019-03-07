@@ -30,17 +30,10 @@ class EditNewsletter extends Component {
         ];
         return(
             <div className='new-newsletter'>
-                <NewNewsletterForm newsletterToEdit={this.props.newsletterToEdit} placeholders={placeholders} formTitle="Edit Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
+                <NewNewsletterForm placeholders={placeholders} formTitle="Edit Newsletter" history={this.props.history} onSubmit={(e) => this.onSubmit(e)} />
             </div>
         )
     }
 }
 
-function mapStateToProps(state) {
-    const { newsletterToEdit } = state.newsletters;
-    return {
-        newsletterToEdit
-    };
-}
-
-export default connect(mapStateToProps, actions)(EditNewsletter);
+export default connect(null, actions)(EditNewsletter);
