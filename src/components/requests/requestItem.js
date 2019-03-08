@@ -8,6 +8,7 @@ import Button from '../button';
 import AnimateHeight from 'react-animate-height';
 
 import { ROOT_URL } from '../../config';
+import RequireAdmin from '../auth/requireAdmin';
 
 class RequestItem extends Component {
     constructor(){
@@ -76,7 +77,9 @@ class RequestItem extends Component {
                 <div className='request-item__date'>
                     {modifiedDate.getMonth() + 1}/{modifiedDate.getDate()}/{modifiedDate.getFullYear() - 2000}
                 </div>
-                <Button className='request-item__move' icon={moveButtonIcon} callback={() => this.handleMoveRequest(_id, status)}/>
+                <RequireAdmin>
+                    <Button className='request-item__move' icon={moveButtonIcon} callback={() => this.handleMoveRequest(_id, status)}/>
+                </RequireAdmin>
 
                 <div className='request-item__description'>
                     <AnimateHeight duration={300} height={this.state.height}>
