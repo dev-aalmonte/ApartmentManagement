@@ -1,4 +1,8 @@
 import {
+    updateHeader
+} from './header';
+
+import {
     signUp,
     signIn
 } from './auth';
@@ -27,5 +31,6 @@ export {
     fetchRequests,
     changeStatus,
     createNewNewsletter,
-    editNewsletter
+    editNewsletter,
+    updateHeader
 }

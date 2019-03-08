@@ -6,6 +6,10 @@ import SignupForm from './signupForm';
 
 class Signup extends Component {
 
+    componentDidMount(){
+        this.props.updateHeader('Welcome to HOA Manager!', 'Please login to continue', false);
+    }
+
     onSubmit = (fields) => {
         this.props.signUp(fields, () => {
             console.log('Navigate to dashboard');
